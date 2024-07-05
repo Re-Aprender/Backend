@@ -19,7 +19,7 @@ public class Categoria {
 	
 	@NotNull(message = "O Atributo tipo_livro é obrigatório!")
 	@Size(min = 3, max = 255, message = "O atributo tipo_livro deve ter mínimo 3 caracteres e no máximo 255!")
-	private String tipo_livro;
+	private String tipoLivro;
 	
 	@NotNull(message = "O Atributo genero é obrigatório!")
 	@Size(min = 3, max = 255, message = "O atributo genero deve ter mínimo 3 caracteres e no máximo 255!")
@@ -33,12 +33,12 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getTipo_livro() {
-		return tipo_livro;
+	public String getTipolivro() {
+		return tipoLivro;
 	}
 
-	public void setTipo_livro(String tipo_livro) {
-		this.tipo_livro = tipo_livro;
+	public void setTipolivro(String tipoLivro) {
+		this.tipoLivro = tipoLivro;
 	}
 
 	public String getGenero() {
