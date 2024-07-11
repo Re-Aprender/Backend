@@ -18,11 +18,11 @@ public class Categoria {
 	private Long id;
 	
 	@NotNull(message = "O Atributo tipo_livro é obrigatório!")
-	@Size(min = 3, max = 255, message = "O atributo tipo_livro deve ter mínimo 3 caracteres e no máximo 255!")
+	@Size(min = 3, max = 50, message = "O atributo tipo_livro deve ter mínimo 3 caracteres e no máximo 50!")
 	private String tipoLivro;
 	
 	@NotNull(message = "O Atributo genero é obrigatório!")
-	@Size(min = 3, max = 255, message = "O atributo genero deve ter mínimo 3 caracteres e no máximo 255!")
+	@Size(min = 3, max = 50, message = "O atributo genero deve ter mínimo 3 caracteres e no máximo 50!")
 	private String genero;
 
 	public Long getId() {
