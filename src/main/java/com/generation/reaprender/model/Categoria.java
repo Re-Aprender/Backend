@@ -17,7 +17,7 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "O Atributo tipo_livro é obrigatório!")
+	@NotNull(message = "O Atributo tipolivro é obrigatório!")
 	@Size(min = 3, max = 50, message = "O atributo tipo_livro deve ter mínimo 3 caracteres e no máximo 50!")
 	private String tipoLivro;
 	
