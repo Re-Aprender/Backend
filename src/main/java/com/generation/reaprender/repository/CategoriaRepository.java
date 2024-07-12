@@ -11,5 +11,5 @@ import com.generation.reaprender.model.Categoria;
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria,Long> {
 	
-	public List<Categoria> findAllByGeneroContainingIgnoreCase(@Param("genero") String genero);
+	public List<Categoria> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
 }

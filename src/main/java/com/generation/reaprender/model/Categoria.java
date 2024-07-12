@@ -24,16 +24,15 @@ public class Categoria {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull(message = "O Atributo tipolivro é obrigatório!")
-	@Size(min = 3, max = 50, message = "O atributo tipo_livro deve ter mínimo 3 caracteres e no máximo 50!")
-	private String tipoLivro;
+	@NotNull(message = "O Atributo didatico é obrigatório!")
+	private Boolean didatico;
 	
-	@NotNull(message = "O Atributo genero é obrigatório!")
-	@Size(min = 3, max = 50, message = "O atributo genero deve ter mínimo 3 caracteres e no máximo 50!")
-	private String genero;
+	@NotNull(message = "O Atributo nome é obrigatório!")
+	@Size(min = 3, max = 50, message = "O atributo nome deve ter mínimo 3 caracteres e no máximo 50!")
+	private String nome;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
-	@JsonIgnoreProperties("categorias")
+	@JsonIgnoreProperties("categoria")
 	private List<Livro> livro;
 
 	public Long getId() {
@@ -44,20 +43,28 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getTipolivro() {
-		return tipoLivro;
+	public Boolean getDidatico() {
+		return didatico;
 	}
 
-	public void setTipolivro(String tipoLivro) {
-		this.tipoLivro = tipoLivro;
+	public void setDidatico(Boolean didatico) {
+		this.didatico = didatico;
 	}
 
-	public String getGenero() {
-		return genero;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setGenero(String genero) {
-		this.genero = genero;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public List<Livro> getLivro() {
+		return livro;
+	}
+
+	public void setLivro(List<Livro> livro) {
+		this.livro = livro;
 	}
 
 	

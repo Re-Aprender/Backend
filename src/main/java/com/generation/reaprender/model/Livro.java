@@ -23,12 +23,14 @@ public class Livro {
 	@Size(min = 2, max = 255, message = "O atributo nome deve ter mínimo 2 caracteres e no máximo 255!")
 	private String nome;
 	
-	@NotNull
+	@NotNull(message = "O atributo autor é obrigatório!")
 	@Size(min = 2, max = 50, message = "O atributo nome deve ter mínimo 2 caracteres e no máximo 50!")
 	private String autor;
 	
-	private Integer anoLancamento;
+	@NotNull(message = "O atributo anolancamento é obrigatório!")
+	private String anoLancamento;
 	
+	@NotNull(message = "O atributo editora é obrigatório!")
 	private String editora;
 	
 	private String foto;
@@ -61,11 +63,11 @@ public class Livro {
 		this.autor = autor;
 	}
 
-	public Integer getAnoLancamento() {
+	public String getAnoLancamento() {
 		return anoLancamento;
 	}
 
-	public void setAnoLancamento(Integer anoLancamento) {
+	public void setAnoLancamento(String anoLancamento) {
 		this.anoLancamento = anoLancamento;
 	}
 
