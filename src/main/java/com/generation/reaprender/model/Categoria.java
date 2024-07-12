@@ -1,12 +1,19 @@
 package com.generation.reaprender.model;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import jakarta.persistence.GenerationType;
 
 
 @Entity
@@ -24,6 +31,10 @@ public class Categoria {
 	@NotNull(message = "O Atributo genero é obrigatório!")
 	@Size(min = 3, max = 50, message = "O atributo genero deve ter mínimo 3 caracteres e no máximo 50!")
 	private String genero;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "categoria", cascade = CascadeType.REMOVE)
+	@JsonIgnoreProperties("categorias")
+	private List<Livro> livro;
 
 	public Long getId() {
 		return id;
