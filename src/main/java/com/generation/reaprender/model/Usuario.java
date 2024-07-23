@@ -1,5 +1,6 @@
 package com.generation.reaprender.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,6 +21,7 @@ public class Usuario {
     @Size(min = 3, max = 50, message = "O atributo nome deve ter no mínimo 3 caracteres e no máximo 50!")
     private String nome;
     
+    @Schema(example = "email@email.com.br")
     @NotNull(message = "O Atributo email é obrigatório.")
     @Size(min = 13, max = 255, message = "O atributo email deve ter mínimo 13 caracteres e no máximo 255!")
     private String email;
