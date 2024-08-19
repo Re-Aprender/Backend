@@ -38,7 +38,6 @@ public class Livro {
 	
 	private String foto;
 	
-	@NotNull(message = "O produto precisa ter um preço")
 	@Digits(integer= 6, fraction = 2)
 	private BigDecimal preco;
 	
