@@ -1,5 +1,7 @@
 package com.generation.reaprender.model;
 
+import java.math.BigDecimal;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -8,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
@@ -35,9 +38,22 @@ public class Livro {
 	
 	private String foto;
 	
+	@NotNull(message = "O produto precisa ter um preço")
+	@Digits(integer= 6, fraction = 2)
+	private BigDecimal preco;
+	
 	@ManyToOne
 	@JsonIgnoreProperties("livro")
 	private Categoria categoria;
+	
+	
+	public BigDecimal getPreco() {
+		return preco;
+	}
+
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
 
 	public Long getId() {
 		return id;
