@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -38,6 +40,24 @@ public class LivroController {
 	@GetMapping
 	public ResponseEntity<List<Livro>> getAll() {
 		return ResponseEntity.ok(livroRepository.findAll());
+	}
+	
+	@GetMapping("/pagina")
+    public ResponseEntity<Page<Livro>> getAllPage(Pageable pageable) {
+        return ResponseEntity.ok(livroRepository.findAll(pageable));
+    
+	}
+	
+	@GetMapping("/pagina/didatico")
+    public ResponseEntity<Page<Livro>> getAllDidaticosPage(Pageable pageable) {
+        return ResponseEntity.ok(livroRepository.findByCategoriaDidaticoTrue(pageable));
+    
+	}
+	
+	@GetMapping("/pagina/naodidatico")
+    public ResponseEntity<Page<Livro>> getAllNaoDidaticosPage(Pageable pageable) {
+        return ResponseEntity.ok(livroRepository.findByCategoriaDidaticoFalse(pageable));
+    
 	}
 	
 	@GetMapping("/{id}")
