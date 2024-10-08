@@ -77,6 +77,15 @@ public class LivroController {
 		return ResponseEntity.ok(livroRepository.findAllByAutorContainingIgnoreCase(autor));
 	}
 	
+	@GetMapping("/categoria/{id}")
+	public ResponseEntity<List<Livro>> getByCategoria(@PathVariable Long id) {
+		return categoriaRepository.findById(id)
+	    .map(categoria -> {
+	        return ResponseEntity.ok(livroRepository.findAllByCategoria(categoria));
+	    })
+	    .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "A categoria não existe!", null));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Livro> post(@Valid @RequestBody Livro livro) {
 		if (categoriaRepository.existsById(livro.getCategoria().getId())) {
